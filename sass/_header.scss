@@ -3,21 +3,73 @@ header {
   --logomark-padding: 0 1em;
 
   display: grid;
-  min-height: 40vh;
-  place-items: center;
-  padding: 10vh 2rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233a00ff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: 0 -38px, 17px -40px;
-  color: var(--color-primary);
-  text-align: center;
+  min-height: 100vh;
+  padding: 0 2rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #034561 100%);
+  color: var(--color-text);
 
   h1 {
-    @include logomark;
+    display: inline-grid;
+    place-content: center;
+    padding: 0 0.5em;
+    min-height: 2em;
+    border-left: 20px solid var(--color-secondary);
+    border-bottom: 20px solid var(--color-secondary);
+    color: var(--color-text);
+  }
+
+  .container {
+    padding-left: 40px;
+    padding-top: 15vh;
+
+    .link-github {
+      margin-top: 20px;
+      position: sticky;
+      top: calc(var(--nav-height) + 1.5rem);
+      left: 2rem;
+      z-index: var(--z-github);
+      align-self: flex-start;
+    }
   }
 
   h2 {
     max-width: 30ch;
+    text-align: left;
+    color: var(--color-text);
+  }
+
+  p {
+    margin: 2rem 0 1.5rem;
+    color: var(--color-text);
+
+    a {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: calc(var(--nav-height) + 1rem) 1rem 2rem;
+
+    h1 {
+      border-left: 8px solid var(--color-secondary);
+      border-bottom: 8px solid var(--color-secondary);
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .container {
+      padding-left: 1rem;
+      padding-top: 2rem;
+
+      .link-github {
+        position: static;
+        margin-top: 1rem;
+      }
+    }
   }
 }

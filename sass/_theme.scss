@@ -1,69 +1,46 @@
-$color-primary: #3a00ff !default;
-$color-primary-alt: #6f6ffd !default;
-$color-secondary: #d42257 !default;
-$color-background: #d2fbf7 !default;
+// Import Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&display=swap");
 
-$brand-colors: (
-  primary: $color-primary,
-  primary-alt: $color-primary-alt,
-  secondary: $color-secondary,
-) !default;
+// Color Variables
+$color-primary: #023047;
+$color-secondary: #fb8500;
+$color-background: #023047;
+$color-text: #ffffff;
+$color-text-dark: #023047;
+$color-light: #ffffff;
+$color-accent: #8ecae6;
 
-$color-body: scale-color(
-  $color-primary,
-  $lightness: -30%,
-  $saturation: -50%
-) !default;
-$color-gray: mix(#767676, $color-body, 70%) !default;
+// Font Variables
+$font-family: "Raleway", sans-serif;
+$font-weight-bold: 800;
 
-$colors: map-merge(
-  $brand-colors,
-  (
-    background: $color-background,
-    text: $color-body,
-    light: #fff,
-  )
-);
+// Layout Variables
+$border-radius: 8px;
+$nav-height: 60px;
 
-@function color($key) {
-  @return map-get($colors, $key);
-}
+// Z-index Variables
+$z-skip: 9999;
+$z-nav: 1000;
+$z-github: 100;
+$z-profile: 10;
 
-@function svgColor($color) {
-  @return "%23" + str-slice("#{color($color)}", 2, -1);
-}
-
-$link-color: color(primary) !default;
-$border-radius: 8px !default;
-
-$font-weight-strong: 500 !default;
-$font-size-h1: 6rem !default;
-$font-size-h2: 3rem !default;
-$font-size-h3: 2rem !default;
-$font-size-h4: 1.35rem !default;
-$font-size-text: 1.15rem !default;
-
-$font-sizes: (
-  h1: $font-size-h1,
-  h2: $font-size-h2,
-  h3: $font-size-h3,
-  h4: $font-size-h4,
-  text: $font-size-text,
-);
-
-// stylelint-disable
+// CSS Custom Properties
 :root {
-  @each $key, $color in $colors {
-    --color-#{$key}: #{$color};
-  }
-
-  --color-anchor: #{$link-color};
-  --font-family: "Baloo 2", sans-serif;
-  --font-weight-strong: #{$font-weight-strong};
-
-  @each $key, $size in $font-sizes {
-    --font-size-#{$key}: #{$size};
-  }
-
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-background: #{$color-background};
+  --color-text: #{$color-text};
+  --color-text-dark: #{$color-text-dark};
+  --color-light: #{$color-light};
+  --color-accent: #{$color-accent};
+  --font-family: #{$font-family};
+  --font-weight-bold: #{$font-weight-bold};
   --border-radius: #{$border-radius};
+  --nav-height: #{$nav-height};
+  
+  /* z-index layers */
+  --z-skip: #{$z-skip};
+  --z-nav: #{$z-nav};
+  --z-github: #{$z-github};
+  --z-profile: #{$z-profile};
 }

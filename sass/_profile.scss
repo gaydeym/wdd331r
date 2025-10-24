@@ -1,13 +1,24 @@
 .profile {
+  position: relative;
   width: 95vw;
   max-width: 80ch;
-  margin: 1rem auto 10vh;
-  padding: 1.25rem;
-  z-index: 1;
+  margin: calc(var(--nav-height) + 2rem) auto 2rem;
+  padding: 1.5rem;
+  z-index: var(--z-profile);
+  background-color: var(--color-light);
+  color: var(--color-text-dark);
+  border: 3px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: 769px) {
+    margin: calc(var(--nav-height) + 3rem) auto 3rem;
+    padding: 2rem;
+  }
 
   h4 {
     margin: 0;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     text-align: center;
   }
 
@@ -18,8 +29,9 @@
 
     > a {
       min-height: 2em;
-      border: 2px solid currentColor;
-      color: var(--color-secondary);
+      border: 3px solid var(--color-secondary);
+      color: var(--color-primary);
+      background-color: var(--color-secondary);
     }
   }
 
@@ -39,6 +51,7 @@
         width: auto;
         margin-right: 0.25em;
         font-weight: var(--font-weight-strong);
+        color: var(--color-primary);
       }
 
       span:nth-child(2) {
@@ -46,10 +59,35 @@
         word-break: break-word;
 
         a {
-          color: inherit;
+          color: var(--color-primary);
         }
       }
     }
+  }
+
+  // Change Title and Author
+  ul li:first-child span:nth-child(2) {
+    font-size: 0;
+
+    &::before {
+      content: "Ocean Depth";
+      font-size: 1rem;
+    }
+  }
+
+  ul li:nth-child(2) span:nth-child(2) {
+    font-size: 0;
+
+    &::before {
+      content: "Miguel Gaydey";
+      font-size: 1rem;
+    }
+  }
+
+  // Hide Twitter/Website
+  ul li:nth-child(3),
+  ul li:nth-child(4) {
+    display: none;
   }
 
   @media (min-width: 180ch) {
@@ -58,17 +96,15 @@
     bottom: 2vmin;
     max-width: 30ch;
     margin-bottom: 0;
-    border-radius: var(--border-radius);
-    background-color: var(--color-light);
-    box-shadow: 0 2px 5px rgba(color(primary), 0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
     ul {
-      justify-content: unset;
+      justify-content: flex-start;
 
       li {
         padding: 0;
 
-        span:nth-child(1) {
+        span:first-child {
           width: 8ch;
           margin-right: 0;
         }
