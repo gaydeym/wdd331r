@@ -8,7 +8,8 @@
   --color-light: #ffffff;
   --color-accent: #8ecae6;
   --font-family: Raleway, sans-serif;
-  --font-weight-bold: 800;
+  --font-weight-bold: 600;
+  --font-weight-strong: 800;
   --border-radius: 8px;
   --nav-height: 60px;
   /* z-index layers */
@@ -300,7 +301,7 @@ header p a {
   color: var(--color-text-dark);
 }
 #about .container h2,
-#about h3 {
+#about .container h3 {
   color: var(--color-primary);
   text-align: left;
 }
